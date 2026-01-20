@@ -90,6 +90,9 @@
         >
         <div>
           <div class="text-h6">{{ project.title }}</div>
+          <div class="text-subtitle2 q-mt-xs text-grey-4">{{ project.tech }}</div>
+
+
           <div class="text-subtitle2">{{ project.description }}</div>
           <div class="project-img"> <img :src="project.img" /></div>
         </div>
@@ -129,15 +132,27 @@ const skills = [
 ];
 
 const projects = [
-  // {
-  //   title: "Project 1",
-  //   description: "Description of project 1",
-  //   img: Images.img
-  // },
-  // {
-  //   title: "Project 2",
-  //   description: "Description of project 2",
-  // },
+{
+    title: "Dashboard Financeiro",
+    tech: "Python + Streamlit",
+    description: "Automação de análise de dados financeiros pessoais com gráficos interativos e processamento de planilhas.",
+    link: "https://github.com/seususuario",
+    img: null // Coloque suas imagens aqui
+  },
+  {
+    title: "Tech Reisen Portfólio",
+    tech: "Vue.js + Quasar",
+    description: "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/seususuario",
+    img: null
+  },
+  {
+    title: "Home Lab Server",
+    tech: "Infra + Docker",
+    description: "Configuração de servidor caseiro rodando Nextcloud e serviços de mídia em containers.",
+    link: "#",
+    img: null
+  }
 ];
 </script>
 
@@ -180,8 +195,7 @@ const projects = [
   color: #f5f5f5;
   font-size: 16px;
   line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 700px;
 }
 
 .skill-card {
