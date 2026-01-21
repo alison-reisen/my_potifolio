@@ -1,6 +1,6 @@
 <template>
-  <q-page class="page">
-    <q-page-container class="container_name">
+  <q-page class="" style="background-color: #15658d">
+    <q-page-container class="justify-content " style="display: flex;">
       <q-img
         class="image"
         src="../../assets/imagem-perfil.jpeg"
@@ -62,44 +62,65 @@
           </div>
         </q-card>
       </div>
-
     </div>
-        <div class="row justify-center q-mt-xl">
-        <q-card class="bg-grey-10 text-white shadow-10" style="border-left: 4px solid burlywood; max-width: 800px; width: 100%">
-          <q-card-section>
-            <div class="text-h6 text-burlywood flex items-center">
-              <q-icon name="mdi-briefcase-check" class="q-mr-sm" size="28px" />
-              Especialista em ERPs & Regra de Negócio
-            </div>
-            <div class="text-body1 q-mt-md" style="opacity: 0.9">
-              Experiência sólida com <strong>TOTVS RM</strong> (Foco em TAF e Integrações SQL) e <strong>Winthor</strong>.
-              Atuação na resolução de conflitos de serviços, criação de relatórios complexos e sustentação de sistemas críticos.
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
+    <div class="row justify-center q-mt-xl">
+      <q-card
+        class="bg-grey-10 text-white shadow-10"
+        style="border-left: 4px solid burlywood; max-width: 800px; width: 100%"
+      >
+        <q-card-section>
+          <div class="text-h6 text-burlywood flex items-center">
+            <q-icon name="mdi-briefcase-check" class="q-mr-sm" size="28px" />
+            Especialista em ERPs & Regra de Negócio
+          </div>
+          <div class="text-body1 q-mt-md" style="opacity: 0.9">
+            Experiência sólida com <strong>TOTVS RM</strong> (Foco em TAF e
+            Integrações SQL) e <strong>Winthor</strong>. Atuação na resolução de
+            conflitos de serviços, criação de relatórios complexos e sustentação
+            de sistemas críticos.
+          </div>
+        </q-card-section>
+      </q-card>
+    </div>
 
-
-    <div class="q-pa-xl" >
+    <div class="q-pa-xl">
       <div class="cases-title q-mb-lg">Projetos</div>
 
-      <div class="row justify-center q-gutter-lg">
+      <div class="q-pa-md row justify-center q-gutter-md text-white ">
         <q-card
-        v-for="project in projects"
-        :key="project.title"
+          v-for="project in projects"
+          :key="project.title"
+          style="background: radial-gradient(circle, #35a2ff 0%, #15658d 100%); max-width: 400px"
+          class=""
+
         >
-        <div>
-          <div class="text-h6">{{ project.title }}</div>
-          <div class="text-subtitle2 q-mt-xs text-grey-4">{{ project.tech }}</div>
+          <q-card-section>
+            <div>
+              <div class="text-h6">{{ project.title }}</div>
+              <div class="text-subtitle2 q-mt-xs ">
+                {{ project.tech }}
+              </div>
 
+              <div class="text-subtitle2">{{ project.description }}</div>
+              <div class="project-img"><img :src="project.img" /></div>
+            </div>
+          </q-card-section>
+          <div class="q-pa-md q-gutter-sm">
+            <q-btn
+              size="10px"
 
-          <div class="text-subtitle2">{{ project.description }}</div>
-          <div class="project-img"> <img :src="project.img" /></div>
-        </div>
+              icon="mdi-git"
+              outline
+              :href="project.link"
+              target="_blank"
+              label="Ir para o projeto"
+            >
+              <q-tooltip>Visualizar Projeto no repositorio do Git Hub</q-tooltip>
+            </q-btn>
+          </div>
         </q-card>
       </div>
     </div>
-
 
     <!--
     <q-page-container class="row q-gutter-md card">
@@ -112,11 +133,11 @@
 </template>
 
 <script setup lang="ts">
-  import {Images} from "../../assets/index";
+import { Images } from "../../assets/index";
 const skills = [
-   { name: 'Vue.js', icon: 'mdi-vuejs' },
-   { name: 'Quasar', icon: 'mdi-lightning-bolt' },
- //  { name: 'Java Script', icon: 'mdi-Javascript' },
+  { name: "Vue.js", icon: "mdi-vuejs" },
+  { name: "Quasar", icon: "mdi-lightning-bolt" },
+  //  { name: 'Java Script', icon: 'mdi-Javascript' },
   // { name: 'HTML', icon: 'mdi-language-html5' },
   // { name: 'CSS', icon: 'mdi-language-css3' },
   // { name: 'Node.js', icon: 'mdi-nodejs' },
@@ -132,34 +153,56 @@ const skills = [
 ];
 
 const projects = [
-{
-    title: "Dashboard Financeiro",
-    tech: "Python + Streamlit",
-    description: "Automação de análise de dados financeiros pessoais com gráficos interativos e processamento de planilhas.",
-    link: "https://github.com/seususuario",
-    img: null // Coloque suas imagens aqui
+  {
+    title: "Tech Reisen Portfólio",
+    tech: "Vue.js + Quasar",
+    description:
+      "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/alison-reisen/my_potifolio",
+    img: null,
   },
   {
     title: "Tech Reisen Portfólio",
     tech: "Vue.js + Quasar",
-    description: "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
-    link: "https://github.com/seususuario",
-    img: null
+    description:
+      "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/alison-reisen/my_potifolio",
+    img: null,
   },
   {
-    title: "Home Lab Server",
-    tech: "Infra + Docker",
-    description: "Configuração de servidor caseiro rodando Nextcloud e serviços de mídia em containers.",
-    link: "#",
-    img: null
-  }
+    title: "Tech Reisen Portfólio",
+    tech: "Vue.js + Quasar",
+    description:
+      "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/alison-reisen/my_potifolio",
+    img: null,
+  },{
+    title: "Tech Reisen Portfólio",
+    tech: "Vue.js + Quasar",
+    description:
+      "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/alison-reisen/my_potifolio",
+    img: null,
+  },{
+    title: "Tech Reisen Portfólio",
+    tech: "Vue.js + Quasar",
+    description:
+      "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/alison-reisen/my_potifolio",
+    img: null,
+  },{
+    title: "Tech Reisen Portfólio",
+    tech: "Vue.js + Quasar",
+    description:
+      "Este site! Desenvolvido com design responsivo, modo escuro e arquitetura baseada em componentes.",
+    link: "https://github.com/alison-reisen/my_potifolio",
+    img: null,
+  },
 ];
 </script>
 
-<style>
-.page {
-  background-color: #15658d;
-}
+<style >
+
 
 .container_name {
   display: flex;
@@ -229,5 +272,8 @@ const projects = [
   font-weight: bold;
   text-align: center;
   color: burlywood;
+}
+.my-card{
+  max-width: 400px
 }
 </style>
