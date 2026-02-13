@@ -156,7 +156,7 @@ const projects = [
     tech: "Python + FastAPI",
     description:
       "API RESTful desenvolvida com FastAPI, evoluída de um script local para uma aplicação serverless. Implementa validação de dados, documentação automática via Swagger e deploy em ambiente cloud, garantindo escalabilidade e disponibilidade global.",
-    link: "https://www.reisen.app.br/docs",
+    link: "https://jokenpo.reisen.app.br/docs",
     img: null,
   },
 ];
