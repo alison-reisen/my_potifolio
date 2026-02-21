@@ -2,7 +2,7 @@
   "name": "portifolio",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Reisen Apps",
+  "productName": "Alison Reisen",
   "author": "Alison Reisen <alison.reisen@oulook.com>",
   "type": "module",
   "private": true,
@@ -15,6 +15,7 @@
   "dependencies": {
     "@quasar/extras": "^1.17.0",
     "axios": "^1.2.1",
+    "echarts": "^6.0.0",
     "quasar": "^2.16.0",
     "vue": "^3.5.22",
     "vue-router": "^4.0.12"

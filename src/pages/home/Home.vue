@@ -1,22 +1,23 @@
 <template>
   <q-page>
-    <!-- Seção de Apresentação -->
-    <div class="q-pa-xl">
-      <div class="row justify-center items-center q-gutter-md">
+
+    <div class="q-pa-xl, hero">
+      <div class="row justify-center items-center q-gutter-md avatar-container">
         <q-img
           class="image"
           src="../../assets/imagem-perfil.jpeg"
           spinner-color="white"
           style="height: 140px; max-width: 150px; border-radius: 100px"
         />
-        <div class="name text-center">
-          Olá, eu sou o <br />
-          Alison Reisen Cordeiro
-        </div>
+        <div class="hero-info">
+    <div class="callsign">CALLSIGN</div>
+    <div class="name">ALISON REISEN CORDEIRO</div>
+    <div class="role">Software Developer</div>
+  </div>
       </div>
     </div>
 
-    <!-- Seção Quem Sou -->
+
     <div class="q-pa-xl">
       <div class="container_introduct text-center">Quem Sou?</div>
 
@@ -46,7 +47,7 @@
       </div>
     </div>
 
-    <!-- Habilidades Técnicas -->
+
     <div class="q-pa-xl">
       <div class="skills-title q-mb-lg">Habilidades Técnicas</div>
       <div class="row justify-center q-gutter-lg">
@@ -63,7 +64,6 @@
       </div>
     </div>
 
-    <!-- Especialização ERP -->
     <div class="q-pa-xl">
       <div class="row justify-center">
         <q-card
@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <!-- Projetos -->
+
     <div class="q-pa-xl">
       <div class="cases-title q-mb-lg">Projetos</div>
       <div class="row justify-center q-gutter-md">
@@ -129,13 +129,11 @@ const skills = [
   { name: "Quasar", icon: "mdi-lightning-bolt" },
   { name: "HTML", icon: "mdi-language-html5" },
   { name: "CSS", icon: "mdi-language-css3" },
-  //{ name: "Node.js", icon: "mdi-nodejs" },
   { name: "Python", icon: "mdi-language-python" },
   { name: "FastAPI", icon: "mdi-api" },
 
   { name: "Oracle", icon: "mdi-database" },
   { name: "SQL Server", icon: "mdi-database" },
-  { name: "MySQL", icon: "mdi-database" },
   { name: "JasperReports", icon: "mdi-file-chart" },
   { name: "Power BI", icon: "mdi-chart-bar" },
   { name: "Git", icon: "mdi-git" },
@@ -163,32 +161,96 @@ const projects = [
 </script>
 
 <style>
-.q-page {
-  background: linear-gradient(180deg, #0e2a38 0%, #123f54 100%);
-  font-family: "Inter", sans-serif;
 
+body {
+  cursor: default;
+}
+.q-page::after {
+  content: "";
+  position: absolute;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(230,184,115,0.5),
+    transparent
+  );
+}
+.q-page {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(230,184,115,0.08), transparent 60%),
+    linear-gradient(180deg, #0e2a38 0%, #123f54 100%);
+  font-family: "Inter", sans-serif;
   min-height: 100vh;
+  position: relative
+}
+.q-page::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(230,184,115,0.08) 1%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+
+
+.q-btn:hover {
+  box-shadow: 0 0 12px rgba(230,184,115,0.4);
 }
 
 .image {
   border-radius: 50%;
   border: 3px solid #e6b873;
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(230,184,115,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(230,184,115,0.6);
 }
 
 .name {
+  max-width: 350px;
   font-size: 28px;
-  font-family: Arial, Helvetica, sans-serif;
   color: #e6b873;
-  font-weight: bold;
-  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(230, 184, 115, 0.4);
 }
 
-.container_introduct,
+@keyframes typing {
+    from { width: 0 }
+    to { width: 50% }
+}
+
+/* Animação do cursor piscando */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #e6b873; }
+}
+
+.container_introduct{
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: rgba(230,184,115,0.6);
+  text-transform: uppercase;
+  margin-top: -10px;
+
+}
+
 .skills-title,
 .cases-title {
   font-size: 36px;
@@ -211,17 +273,17 @@ const projects = [
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: #162a3a;
-
+  background: radial-gradient(circle at center, #1b3b4d 40%, #162a3a 100%);
   color: #e6b873;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6),
+              0 8px 20px rgba(0,0,0,0.25);
   transition: all 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8),
+              0 15px 35px rgba(0,0,0,0.45);
 }
 
 .skill-name {
@@ -248,6 +310,11 @@ const projects = [
   border-radius: 16px;
   border-left: 4px solid #e6b873;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.airplane-icon {
+  color: #e6b873;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
